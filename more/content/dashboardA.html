@@ -3,6 +3,7 @@ layout: default
 title: "Dashboard A"
 description: "Welcome User A"
 header-img: "img/post-bg-rwd.jpg"
+exclude_from_nav: true
 ---
 
 <!-- Page Header -->
@@ -65,7 +66,7 @@ function checkAuth() {
     // 如果未登录或不是用户A，重定向到登录页面
     if (loggedInUser !== 'aa') {
         alert('Please login first!');
-        window.location.href = '{{ site.baseurl }}/more/';
+        window.location.href = '/more/';
         return false;
     }
     
@@ -83,7 +84,7 @@ function logout() {
     if (confirm('Are you sure you want to logout?')) {
         sessionStorage.removeItem('loggedInUser');
         sessionStorage.removeItem('loginTime');
-        window.location.href = '{{ site.baseurl }}/more/';
+        window.location.href = '/more/';
     }
 }
 
