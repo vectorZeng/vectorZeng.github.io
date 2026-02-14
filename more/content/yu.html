@@ -16,23 +16,67 @@ body {
   justify-content: center;
   background-color: #ff758f;
   overflow-x: hidden;
+  margin: 0; /* 确保无边距以更好地居中 */
 }
 
 .happy-valentines {
   position: relative;
   width: 400px;
   height: 500px; /* 调整高度以适应消息 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 确保内容垂直居中 */
 }
 
-.valentines-day-card {
-  position: relative;
+.flip-card {
+  background-color: transparent;
   width: 400px;
   height: 300px;
-  background-color: #ff8fa3;
-  overflow: hidden;
+  perspective: 1000px; /* 3D 翻转效果 */
+  cursor: pointer; /* 提示可点击 */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 100px rgba(0,0,0,.4);
   border:10px solid white;
   border-radius:10px;
-  box-shadow: 0 0 100px rgba(0,0,0,.4);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #ff8fa3;
+}
+
+.flip-card-back {
+  background-color: #ff8fa3;
+  color: #800f2f;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .valentines-day-card:before {
@@ -186,23 +230,6 @@ body {
   z-index:3;
   top:320px;
   animation: up 1s ease forwards;
-  transition: .2s;
-  cursor: pointer; /* 添加光标以提示hover */
-}
-
-.text span {
-  display: block;
-}
-
-.text:hover span {
-  display: none;
-}
-
-.text:hover:before {
-  content:"亲爱的梧桐宝贝，情人节快乐哦！❤️ 爱你 vector 2026-02-14";
-  font-size:25px;
-  display: block;
-  line-height: 1.2;
 }
 
 /* 保留原来的飘落心形样式 */
@@ -249,7 +276,7 @@ body {
     height: 400px;
   }
   
-  .valentines-day-card {
+  .flip-card {
     width: 300px;
     height: 225px;
   }
@@ -261,7 +288,7 @@ body {
     top: 240px;
   }
   
-  .text:hover:before {
+  .flip-card-back {
     font-size: 20px;
   }
   
@@ -277,31 +304,38 @@ body {
 <div class="hearts-container" id="heartsContainer"></div>
 
 <div class="happy-valentines">
-  <div class="valentines-day-card">
-    <div class="clouds"></div>
-    <div class="hearts">
-      <div class="heartOne">
-        <div class="left-side"></div>
-        <div class="right-side"></div>
+  <div class="flip-card" id="flipCard">
+    <div class="flip-card-inner">
+      <div class="flip-card-front valentines-day-card">
+        <div class="clouds"></div>
+        <div class="hearts">
+          <div class="heartOne">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+          </div>
+          <div class="heartTwo">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+          </div>
+          <div class="heartThree">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+          </div>
+          <div class="heartFour">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+          </div>
+          <div class="heartFive">
+            <div class="left-side"></div>
+            <div class="right-side"></div>
+          </div>
+        </div>
+        <div class="text">💕 Happy Valentine's Day 💕<br>To my dearest Wutong</div>
       </div>
-      <div class="heartTwo">
-        <div class="left-side"></div>
-        <div class="right-side"></div>
-      </div>
-      <div class="heartThree">
-        <div class="left-side"></div>
-        <div class="right-side"></div>
-      </div>
-      <div class="heartFour">
-        <div class="left-side"></div>
-        <div class="right-side"></div>
-      </div>
-      <div class="heartFive">
-        <div class="left-side"></div>
-        <div class="right-side"></div>
+      <div class="flip-card-back">
+        亲爱的梧桐宝贝，<br>情人节快乐哦！❤️<br>爱你<br>vector<br>2026-02-14
       </div>
     </div>
-    <div class="text"><span>💕 Happy Valentine's Day 💕<br>To my dearest Wutong</span></div>
   </div>
 
   <div style="text-align: center; margin-top: 20px;">
@@ -364,6 +398,11 @@ function createHeart() {
     heart.remove();
   }, 8000);
 }
+
+// 点击翻转卡片
+document.getElementById('flipCard').addEventListener('click', function() {
+  this.classList.toggle('flipped');
+});
 
 // 页面加载时检查认证
 checkAuth();
