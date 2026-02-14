@@ -34,8 +34,8 @@ body {
 
 .happy-valentines {
   position: relative;
-  width: 550px;
-  height: 600px;
+  width: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,8 +44,8 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 550px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
   perspective: 1000px; /* 3D 翻转效果 */
   cursor: pointer; /* 提示可点击 */
 }
@@ -79,50 +79,17 @@ body {
 }
 
 .flip-card-back {
-  background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 50%, #ff8fa3 100%);
+  background-color: #ff8fa3;
   color: #800f2f;
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 20px;
   font-family: 'Pacifico', cursive;
-  font-size: 28px;
-  line-height: 1.5;
+  font-size: 25px;
+  line-height: 1.2;
   text-align: center;
-  position: relative;
-  overflow: visible;
-}
-
-.flip-card-back::before {
-  content: '💕';
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  font-size: 40px;
-  opacity: 0.6;
-  animation: heartPulse 2s ease-in-out infinite;
-}
-
-.flip-card-back::after {
-  content: '💕';
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  font-size: 40px;
-  opacity: 0.6;
-  animation: heartPulse 2s ease-in-out infinite 1s;
-}
-
-@keyframes heartPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.9;
-  }
 }
 
 .valentines-day-card:before {
@@ -132,9 +99,9 @@ body {
   width:100px;
   height:100px;
   border-radius:50%;
-  top:180px;
+  top:140px;
   left:-25px;
-  box-shadow:80px 25px #ffb3c1,180px 15px #ffb3c1,270px 25px #ffb3c1,360px 0px #ffb3c1, 470px 25px #ffb3c1;
+  box-shadow:60px 20px #ffb3c1,130px 10px #ffb3c1,190px 20px #ffb3c1,260px -5px #ffb3c1, 340px 20px #ffb3c1;
 }
 
 .valentines-day-card:after {
@@ -144,9 +111,9 @@ body {
   width:100px;
   height:100px;
   border-radius:50%;
-  top:200px;
+  top:160px;
   left:-40px;
-  box-shadow: 70px 25px #ffccd5,165px 50px #ffccd5, 280px 20px #ffccd5,360px 40px #ffccd5, 460px 40px #ffccd5,530px 15px #ffccd5;
+  box-shadow: 50px 20px #ffccd5,120px 40px #ffccd5, 200px 15px #ffccd5,260px 30px #ffccd5, 330px 30px #ffccd5,380px 10px #ffccd5;
 }
 
 .clouds {
@@ -156,9 +123,9 @@ body {
   border-radius:50%;
   background-color: #fff0f3;
   z-index:5;
-  top:280px;
+  top:210px;
   left:-20px;
-  box-shadow: 75px 40px #fff0f3, 170px 15px #fff0f3,240px 30px #fff0f3, 350px 15px #fff0f3, 450px 10px #fff0f3, 530px 15px #fff0f3;
+  box-shadow: 55px 30px #fff0f3, 125px 10px #fff0f3,175px 20px #fff0f3, 250px 10px #fff0f3, 320px 5px #fff0f3, 380px 10px #fff0f3;
 }
 
 .hearts {
@@ -168,36 +135,36 @@ body {
 
 .heartOne {
   position: absolute;
-  left:140px;
-  top:320px;
+  left:100px;
+  top:250px;
   animation: up 4s linear forwards 1s;
 }
 
 .heartTwo {
   position: absolute;
-  left:370px;
-  top:300px;
+  left:270px;
+  top:230px;
   animation: up 5s linear forwards 1.8s;
 }
 
 .heartThree {
   position: absolute;
-  left:115px;
-  top:520px;
+  left:85px;
+  top:415px;
   animation: up 5s linear forwards 3s;
 }
 
 .heartFour {
   position: absolute;
-  left:440px;
-  top:480px;
+  left:320px;
+  top:380px;
   animation: upTwo 9s linear infinite 3.5s;
 }
 
 .heartFive {
   position: absolute;
-  left:200px;
-  top:500px;
+  left:150px;
+  top:400px;
   animation: upTwo 13s linear infinite 4.5s;
 }
 
@@ -267,28 +234,15 @@ body {
 .text {
   position: absolute;
   color: #800f2f;
-  font-size:32px;
+  font-size:30px;
   font-family: 'Pacifico', cursive;
-  line-height:1.3;
+  line-height:1;
   text-align: center;
-  width:520px;
-  left:15px;
-  z-index:100;
-  top:120px;
-  animation: fadeIn 1.5s ease forwards;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
-  font-weight: bold;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  width:380px;
+  left:10px;
+  z-index:3;
+  top:320px;
+  animation: up 1s ease forwards;
 }
 
 /* 保留原来的飘落心形样式 */
