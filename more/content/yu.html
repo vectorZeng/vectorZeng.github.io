@@ -16,9 +16,6 @@ header, footer, nav {
 
 body {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #ff758f;
   overflow-x: hidden;
   margin: 0;
@@ -26,29 +23,25 @@ body {
 }
 
 .valentine-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 50px 20px 50px;
   z-index: 9999;
   background-color: #ff758f;
 }
 
 .happy-valentines {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 450px;
   height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .flip-card {
@@ -399,7 +392,11 @@ body {
   .rose {
     width: 150px;
     height: 150px;
-    margin-top: 280px;
+    margin-top: 30px;
+  }
+  
+  .happy-valentines {
+    margin-top: 10px;
   }
 }
 
@@ -408,7 +405,7 @@ body {
     width: 180px;
     height: 180px;
     position: relative;
-    margin-top: 340px;
+    margin-top: 40px;
     animation: yidon 5s infinite;
 }
 
