@@ -51,250 +51,6 @@ body {
     filter: drop-shadow(0 10px 30px rgba(255, 20, 147, 0.3));
 }
 
-.stem {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 280px;
-    background: linear-gradient(to right, #1a3a0f 0%, #2d5016 30%, #4a7c2c 60%, #3d6625 100%);
-    border-radius: 5px;
-    animation: stemGrow 1.5s ease-out;
-    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.3), 2px 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.leaf {
-    position: absolute;
-    width: 70px;
-    height: 35px;
-    background: linear-gradient(135deg, #5a9c3a 0%, #4a7c2c 50%, #3d6625 100%);
-    border-radius: 0 50% 50% 0;
-    transform-origin: left center;
-    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.leaf::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, #7cb85d, transparent);
-    transform: translateY(-50%);
-}
-
-.leaf-left {
-    bottom: 140px;
-    left: 50%;
-    transform: translateX(-100%) rotate(-35deg);
-    animation: leafGrow 1.8s ease-out;
-}
-
-.leaf-right {
-    bottom: 100px;
-    left: 50%;
-    transform: rotate(35deg);
-    animation: leafGrow 2s ease-out;
-}
-
-.rose {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
-    height: 180px;
-    animation: roseBloom 3s ease-out;
-}
-
-.petal {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.petal::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 85px;
-    height: 95px;
-    background: radial-gradient(ellipse at 40% 35%, 
-        #ffb8d4 0%, 
-        #ff8fc7 20%,
-        #ff69b4 40%, 
-        #ff1493 70%,
-        #c71585 100%);
-    border-radius: 50% 50% 50% 20%;
-    transform: translate(-50%, -50%);
-    box-shadow: 
-        inset -3px -3px 8px rgba(199, 21, 133, 0.6),
-        inset 3px 3px 8px rgba(255, 182, 193, 0.4),
-        0 2px 8px rgba(255, 20, 147, 0.4);
-}
-
-.petal:nth-child(1) {
-    transform: rotate(0deg);
-    animation: petalOpen 2.5s ease-out;
-}
-
-.petal:nth-child(1)::before {
-    background: radial-gradient(ellipse at 35% 30%, 
-        #ffc8e0 0%, 
-        #ffb8d4 15%,
-        #ff8fc7 35%,
-        #ff69b4 55%, 
-        #ff1493 75%,
-        #c71585 100%);
-}
-
-.petal:nth-child(2) {
-    transform: rotate(45deg);
-    animation: petalOpen 2.7s ease-out;
-}
-
-.petal:nth-child(3) {
-    transform: rotate(90deg);
-    animation: petalOpen 2.9s ease-out;
-}
-
-.petal:nth-child(3)::before {
-    background: radial-gradient(ellipse at 38% 32%, 
-        #ffb8d4 0%, 
-        #ff8fc7 20%,
-        #ff69b4 45%, 
-        #ff1493 70%,
-        #c71585 100%);
-}
-
-.petal:nth-child(4) {
-    transform: rotate(153deg);
-    animation: petalOpen 2.8s ease-out forwards;
-}
-
-.petal:nth-child(5) {
-    transform: rotate(204deg);
-    animation: petalOpen 2.9s ease-out forwards;
-}
-
-.petal:nth-child(6) {
-    transform: rotate(255deg);
-    animation: petalOpen 3s ease-out forwards;
-}
-
-.petal:nth-child(7) {
-    transform: rotate(306deg);
-    animation: petalOpen 3.1s ease-out forwards;
-}
-
-/* 内层花瓣 */
-.inner-petal {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.inner-petal::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 80px;
-    background: radial-gradient(ellipse at 30% 20%, 
-        #ffd0e8 0%, 
-        #ffb8da 15%,
-        #ff8fc7 35%,
-        #ff4da6 60%, 
-        #ff1493 85%,
-        #c71585 100%);
-    border-radius: 70% 50% 70% 50%;
-    transform: translate(-50%, -50%) rotate(-5deg);
-    box-shadow: 
-        inset -3px -3px 10px rgba(199, 21, 133, 0.8),
-        inset 3px 3px 10px rgba(255, 208, 232, 0.6),
-        0 2px 10px rgba(255, 20, 147, 0.6);
-}
-
-.inner-petal:nth-child(8) {
-    transform: rotate(25deg);
-    animation: petalOpen 3.2s ease-out forwards;
-}
-
-.inner-petal:nth-child(9) {
-    transform: rotate(95deg);
-    animation: petalOpen 3.3s ease-out forwards;
-}
-
-.inner-petal:nth-child(10) {
-    transform: rotate(165deg);
-    animation: petalOpen 3.4s ease-out forwards;
-}
-
-.inner-petal:nth-child(11) {
-    transform: rotate(235deg);
-    animation: petalOpen 3.5s ease-out forwards;
-}
-
-.inner-petal:nth-child(12) {
-    transform: rotate(305deg);
-    animation: petalOpen 3.6s ease-out forwards;
-}
-
-.rose-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: radial-gradient(circle at 35% 35%, 
-        #ffe0f0 0%,
-        #ffb6c1 15%,
-        #ff8fa3 35%,
-        #ff1493 60%,
-        #c71585 85%,
-        #8b0a50 100%);
-    border-radius: 50%;
-    animation: centerPulse 2s infinite;
-    box-shadow: 
-        inset -3px -3px 10px rgba(139, 10, 80, 0.8),
-        inset 3px 3px 10px rgba(255, 192, 203, 0.6),
-        0 0 20px rgba(255, 20, 147, 0.5);
-}
-
-.rose-center::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 25%;
-    width: 18px;
-    height: 18px;
-    background: radial-gradient(circle at 30% 30%, 
-        rgba(255, 255, 255, 0.7), 
-        rgba(255, 192, 224, 0.3),
-        transparent);
-    border-radius: 50%;
-    filter: blur(2px);
-}
-
-.rose-center::after {
-    content: '';
-    position: absolute;
-    top: 60%;
-    right: 25%;
-    width: 10px;
-    height: 10px;
-    background: radial-gradient(circle, 
-        rgba(255, 255, 255, 0.4), 
-        transparent);
-    border-radius: 50%;
-    filter: blur(1px);
-}
-
 .message-box {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 25px;
@@ -405,63 +161,12 @@ body {
     }
 }
 
-@keyframes stemGrow {
-    from {
-        height: 0;
-    }
-    to {
-        height: 320px;
-    }
-}
-
-@keyframes leafGrow {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 @keyframes roseGrow {
     from {
         transform: scale(0);
     }
     to {
         transform: scale(1);
-    }
-}
-
-@keyframes roseBloom {
-    from {
-        transform: translateX(-50%) scale(0);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes petalOpen {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes centerPulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
     }
 }
 
@@ -514,25 +219,28 @@ body {
     <h2 class="subtitle">To my dearest Wutong</h2>
     
     <div class="rose-container">
-        <div class="rose">
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="inner-petal"></div>
-            <div class="inner-petal"></div>
-            <div class="inner-petal"></div>
-            <div class="inner-petal"></div>
-            <div class="inner-petal"></div>
-            <div class="rose-center"></div>
-        </div>
-        <div class="stem">
-            <div class="leaf leaf-left"></div>
-            <div class="leaf leaf-right"></div>
-        </div>
+        <svg width="300" height="450" viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stem -->
+            <path d="M150 450 C150 450 140 300 150 200 C160 100 150 100 150 100" stroke="#228B22" stroke-width="10" fill="none" />
+            
+            <!-- Leaves -->
+            <path d="M150 300 Q100 250 80 300 Q100 350 150 300" fill="#228B22" stroke="#006400" stroke-width="2" />
+            <path d="M150 350 Q200 300 220 350 Q200 400 150 350" fill="#228B22" stroke="#006400" stroke-width="2" />
+            <path d="M150 250 Q120 200 100 250 Q120 300 150 250" fill="#228B22" stroke="#006400" stroke-width="2" />
+            
+            <!-- Outer Petals -->
+            <path d="M150 100 Q100 50 50 100 Q100 150 150 100 Q200 150 250 100 Q200 50 150 100" fill="#FF69B4" stroke="#C71585" stroke-width="2" />
+            <path d="M150 100 Q100 0 50 50 Q0 100 50 150 Q100 200 150 150" transform="rotate(45 150 100)" fill="#FF1493" stroke="#C71585" stroke-width="2" />
+            <path d="M150 100 Q200 0 250 50 Q300 100 250 150 Q200 200 150 150" transform="rotate(-45 150 100)" fill="#FF1493" stroke="#C71585" stroke-width="2" />
+            
+            <!-- Inner Petals -->
+            <path d="M150 100 Q120 70 100 100 Q120 130 150 100 Q180 130 200 100 Q180 70 150 100" fill="#FFB6C1" stroke="#FF69B4" stroke-width="1" />
+            <path d="M150 100 Q130 80 110 100 Q130 120 150 100" transform="rotate(30 150 100)" fill="#FFC0CB" stroke="#FF69B4" stroke-width="1" />
+            <path d="M150 100 Q170 80 190 100 Q170 120 150 100" transform="rotate(-30 150 100)" fill="#FFC0CB" stroke="#FF69B4" stroke-width="1" />
+            
+            <!-- Center -->
+            <circle cx="150" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" />
+        </svg>
     </div>
     
     <div class="message-box">
