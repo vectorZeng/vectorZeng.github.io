@@ -7,291 +7,362 @@ exclude_from_nav: true
 ---
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
-    background: linear-gradient(135deg, #fff5fa 0%, #fff0f5 50%, #ffe4ec 100%);
-    overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff758f;
+  overflow-x: hidden;
 }
 
-.valentine-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    position: relative;
+.happy-valentines {
+  position: relative;
+  width: 400px;
+  height: 500px; /* 调整高度以适应消息 */
 }
 
-.valentine-title {
-    font-family: 'Georgia', serif;
-    font-size: 3.5em;
-    color: #ff1493;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
-    animation: fadeInDown 1.5s ease-out;
-    font-weight: bold;
+.valentines-day-card {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-color: #ff8fa3;
+  overflow: hidden;
+  border:10px solid white;
+  border-radius:10px;
+  box-shadow: 0 0 100px rgba(0,0,0,.4);
 }
 
-.subtitle {
-    font-family: 'Georgia', serif;
-    font-size: 1.8em;
-    color: #ff69b4;
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeInUp 2s ease-out;
+.valentines-day-card:before {
+  content:"";
+  position: absolute;
+  background-color: #ffb3c1;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  top:140px;
+  left:-25px;
+  box-shadow:60px 20px #ffb3c1,130px 10px #ffb3c1,190px 20px #ffb3c1,260px -5px #ffb3c1, 340px 20px #ffb3c1;
 }
 
-.rose-container {
-    position: relative;
-    width: 300px;
-    height: 450px;
-    margin: 30px auto;
-    animation: roseGrow 2s ease-out;
-    filter: drop-shadow(0 10px 30px rgba(255, 20, 147, 0.3));
+.valentines-day-card:after {
+  content:"";
+  position: absolute;
+  background-color: #ffccd5;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  top:160px;
+  left:-40px;
+  box-shadow: 50px 20px #ffccd5,120px 40px #ffccd5, 200px 15px #ffccd5,260px 30px #ffccd5, 330px 30px #ffccd5,380px 10px #ffccd5;
 }
 
-.message-box {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    padding: 50px 60px;
-    max-width: 800px;
-    margin: 40px auto;
-    box-shadow: 
-        0 15px 50px rgba(255, 105, 180, 0.25),
-        0 5px 20px rgba(255, 20, 147, 0.15);
-    animation: fadeIn 3s ease-out;
-    border: 2px solid rgba(255, 192, 203, 0.4);
-    position: relative;
-}
-
-.message-box::before {
-    content: '❤️';
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.5em;
-    animation: heartBounce 1.5s ease-in-out infinite;
-}
-
-@keyframes heartBounce {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-}
-
-.message-text {
-    font-family: 'Georgia', serif;
-    font-size: 1.4em;
-    line-height: 2;
-    color: #d63384;
-    text-align: center;
-    margin-bottom: 20px;
+.clouds {
+  position: absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background-color: #fff0f3;
+  z-index:5;
+  top:210px;
+  left:-20px;
+  box-shadow: 55px 30px #fff0f3, 125px 10px #fff0f3,175px 20px #fff0f3, 250px 10px #fff0f3, 320px 5px #fff0f3, 380px 10px #fff0f3;
 }
 
 .hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
+  position: absolute;
+  z-index:2;
+}
+
+.heartOne {
+  position: absolute;
+  left:100px;
+  top:250px;
+  animation: up 4s linear forwards 1s;
+}
+
+.heartTwo {
+  position: absolute;
+  left:270px;
+  top:230px;
+  animation: up 5s linear forwards 1.8s;
+}
+
+.heartThree {
+  position: absolute;
+  left:85px;
+  top:415px;
+  animation: up 5s linear forwards 3s;
+}
+
+.heartFour {
+  position: absolute;
+  left:320px;
+  top:380px;
+  animation: upTwo 9s linear infinite 3.5s;
+}
+
+.heartFive {
+  position: absolute;
+  left:150px;
+  top:400px;
+  animation: upTwo 13s linear infinite 4.5s;
+}
+
+.right-side:before, .right-side:after {
+  position: absolute;
+  content:"";
+  transform-origin: left;
+  animation: move 1s ease infinite;
+}
+
+.right-side:before {
+  border-radius:50% 50% 50% 0;
+  width:21px;
+  height:20px;
+  background-color: #c9184a;
+  left:-0.26px;
+}
+
+.right-side:after {
+  height:0;
+  width:0;
+  border-bottom:10px solid transparent;
+  border-left: 15px solid #c9184a;
+  top:19px;
+  left:-0.26px;
+}
+
+@keyframes move {
+  0%, 100% {transform: rotateY(0);}
+  50% {transform: rotateY(-45deg);}
+}
+
+.left-side:before, .left-side:after {
+  position: absolute;
+  content:"";
+  transform-origin: right;
+  animation: move 1s ease infinite;
+}
+
+.left-side:before {
+  border-radius:50% 50% 0 50%;
+  width:20px;
+  height:20px;
+  left:-20.7px;
+  background-color: #ff4d6d;
+}
+
+.left-side:after {
+  height:0;
+  width:0;
+  left:-15px;
+  border-bottom:10px solid transparent;
+  border-right: 15px solid #ff4d6d;
+  top:19px;
+}
+
+@keyframes up {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-200px);}
+}
+
+@keyframes upTwo {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-450px);}
+}
+
+.text {
+  position: absolute;
+  color: #800f2f;
+  font-size:30px;
+  font-family: 'Pacifico', cursive;
+  line-height:1;
+  text-align: center;
+  width:380px;
+  left:10px;
+  z-index:3;
+  top:320px;
+  animation: up 1s ease forwards;
+  transition: .2s;
+  cursor: pointer; /* 添加光标以提示hover */
+}
+
+.text span {
+  display: block;
+}
+
+.text:hover span {
+  display: none;
+}
+
+.text:hover:before {
+  content:"亲爱的梧桐宝贝，情人节快乐哦！❤️ 爱你 vector 2026-02-14";
+  font-size:25px;
+  display: block;
+  line-height: 1.2;
+}
+
+/* 保留原来的飘落心形样式 */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .heart {
-    position: absolute;
-    color: #ff69b4;
-    font-size: 20px;
-    animation: heartFloat 8s linear infinite;
-    opacity: 0;
-}
-
-.logout-btn {
-    background: linear-gradient(135deg, #ff69b4, #ff1493);
-    border: none;
-    color: white;
-    padding: 12px 40px;
-    border-radius: 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
-    margin-top: 20px;
-}
-
-.logout-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes roseGrow {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+  position: absolute;
+  color: #ff69b4;
+  font-size: 20px;
+  animation: heartFloat 8s linear infinite;
+  opacity: 0;
 }
 
 @keyframes heartFloat {
-    0% {
-        bottom: -50px;
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.8;
-    }
-    90% {
-        opacity: 0.8;
-    }
-    100% {
-        bottom: 100%;
-        opacity: 0;
-    }
+  0% {
+    bottom: -50px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .valentine-title {
-        font-size: 2.5em;
-    }
-    
-    .subtitle {
-        font-size: 1.3em;
-    }
-    
-    .message-box {
-        padding: 25px;
-        margin: 20px;
-    }
-    
-    .message-text {
-        font-size: 1.1em;
-    }
-    
-    .rose-container {
-        transform: scale(0.8);
-    }
+  .happy-valentines {
+    width: 300px;
+    height: 400px;
+  }
+  
+  .valentines-day-card {
+    width: 300px;
+    height: 225px;
+  }
+  
+  .text {
+    font-size: 24px;
+    width: 280px;
+    left: 10px;
+    top: 240px;
+  }
+  
+  .text:hover:before {
+    font-size: 20px;
+  }
+  
+  /* 调整心形位置以适应小屏幕 */
+  .heartOne { left: 75px; top: 187px; }
+  .heartTwo { left: 202px; top: 172px; }
+  .heartThree { left: 64px; top: 311px; }
+  .heartFour { left: 240px; top: 285px; }
+  .heartFive { left: 112px; top: 300px; }
 }
 </style>
 
-<div class="hearts" id="heartsContainer"></div>
+<div class="hearts-container" id="heartsContainer"></div>
 
-<div class="valentine-container">
-    <h1 class="valentine-title">💕 Happy Valentine's Day 💕</h1>
-    <h2 class="subtitle">To my dearest Wutong</h2>
-    
-    <div class="rose-container">
-        <svg width="300" height="450" viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg">
-            <!-- Stem -->
-            <path d="M150 450 C150 450 140 300 150 200 C160 100 150 100 150 100" stroke="#228B22" stroke-width="10" fill="none" />
-            
-            <!-- Leaves -->
-            <path d="M150 300 Q100 250 80 300 Q100 350 150 300" fill="#228B22" stroke="#006400" stroke-width="2" />
-            <path d="M150 350 Q200 300 220 350 Q200 400 150 350" fill="#228B22" stroke="#006400" stroke-width="2" />
-            <path d="M150 250 Q120 200 100 250 Q120 300 150 250" fill="#228B22" stroke="#006400" stroke-width="2" />
-            
-            <!-- Outer Petals -->
-            <path d="M150 100 Q100 50 50 100 Q100 150 150 100 Q200 150 250 100 Q200 50 150 100" fill="#FF69B4" stroke="#C71585" stroke-width="2" />
-            <path d="M150 100 Q100 0 50 50 Q0 100 50 150 Q100 200 150 150" transform="rotate(45 150 100)" fill="#FF1493" stroke="#C71585" stroke-width="2" />
-            <path d="M150 100 Q200 0 250 50 Q300 100 250 150 Q200 200 150 150" transform="rotate(-45 150 100)" fill="#FF1493" stroke="#C71585" stroke-width="2" />
-            
-            <!-- Inner Petals -->
-            <path d="M150 100 Q120 70 100 100 Q120 130 150 100 Q180 130 200 100 Q180 70 150 100" fill="#FFB6C1" stroke="#FF69B4" stroke-width="1" />
-            <path d="M150 100 Q130 80 110 100 Q130 120 150 100" transform="rotate(30 150 100)" fill="#FFC0CB" stroke="#FF69B4" stroke-width="1" />
-            <path d="M150 100 Q170 80 190 100 Q170 120 150 100" transform="rotate(-30 150 100)" fill="#FFC0CB" stroke="#FF69B4" stroke-width="1" />
-            
-            <!-- Center -->
-            <circle cx="150" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" />
-        </svg>
+<div class="happy-valentines">
+  <div class="valentines-day-card">
+    <div class="clouds"></div>
+    <div class="hearts">
+      <div class="heartOne">
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+      </div>
+      <div class="heartTwo">
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+      </div>
+      <div class="heartThree">
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+      </div>
+      <div class="heartFour">
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+      </div>
+      <div class="heartFive">
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+      </div>
     </div>
-    
-    <div class="message-box">
-        <p class="message-text">
-            亲爱的梧桐宝贝，<br><br>
-            情人节快乐哦！❤️<br><br>
-            爱你<br><br>
-            vector<br>
-            2026-02-14
-        </p>
-        <div style="text-align: center;">
-            <button onclick="logout()" class="logout-btn">返回</button>
-        </div>
-    </div>
+    <div class="text"><span>💕 Happy Valentine's Day 💕<br>To my dearest Wutong</span></div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="logout()" class="logout-btn">返回</button>
+  </div>
 </div>
+
+<style>
+.logout-btn {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border: none;
+  color: white;
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+</style>
 
 <script>
 // 检查登录状态
 function checkAuth() {
-    const loggedInUser = sessionStorage.getItem('loggedInUser');
-    
-    if (loggedInUser !== 'wutong') {
-        alert('Please login first!');
-        window.location.href = '/more/';
-        return false;
-    }
-    
-    return true;
+  const loggedInUser = sessionStorage.getItem('loggedInUser');
+  
+  if (loggedInUser !== 'wutong') {
+    alert('Please login first!');
+    window.location.href = '/more/';
+    return false;
+  }
+  
+  return true;
 }
 
 // 登出功能
 function logout() {
-    sessionStorage.removeItem('loggedInUser');
-    sessionStorage.removeItem('loginTime');
-    window.location.href = '/more/';
+  sessionStorage.removeItem('loggedInUser');
+  sessionStorage.removeItem('loginTime');
+  window.location.href = '/more/';
 }
 
 // 创建飘落的爱心
 function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.innerHTML = '❤';
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
-    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-    
-    document.getElementById('heartsContainer').appendChild(heart);
-    
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = '❤';
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+  heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+  
+  document.getElementById('heartsContainer').appendChild(heart);
+  
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
 }
 
 // 页面加载时检查认证
@@ -302,6 +373,6 @@ setInterval(createHeart, 800);
 
 // 初始创建一些爱心
 for (let i = 0; i < 10; i++) {
-    setTimeout(createHeart, i * 200);
+  setTimeout(createHeart, i * 200);
 }
 </script>
