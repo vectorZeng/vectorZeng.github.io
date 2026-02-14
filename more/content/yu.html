@@ -10,23 +10,36 @@ exclude_from_nav: true
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ff758f;
   overflow-x: hidden;
-  margin: 0; /* 确保无边距以更好地居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.valentine-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .happy-valentines {
   position: relative;
   width: 400px;
-  height: 500px; /* 调整高度以适应消息 */
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 确保内容垂直居中 */
+  justify-content: center;
 }
 
 .flip-card {
@@ -303,10 +316,11 @@ body {
 
 <div class="hearts-container" id="heartsContainer"></div>
 
-<div class="happy-valentines">
-  <div class="flip-card" id="flipCard">
-    <div class="flip-card-inner">
-      <div class="flip-card-front valentines-day-card">
+<div class="valentine-container">
+  <div class="happy-valentines">
+    <div class="flip-card" id="flipCard">
+      <div class="flip-card-inner">
+        <div class="flip-card-front valentines-day-card">
         <div class="clouds"></div>
         <div class="hearts">
           <div class="heartOne">
@@ -337,8 +351,9 @@ body {
       </div>
     </div>
   </div>
-
   <div style="text-align: center; margin-top: 20px;">
+      <button onclick="logout()" class="logout-btn">返回</button>
+    </div
     <button onclick="logout()" class="logout-btn">返回</button>
   </div>
 </div>
