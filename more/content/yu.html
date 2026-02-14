@@ -1,0 +1,448 @@
+---
+layout: default
+title: "Happy Valentine's Day"
+description: "To My Dearest Wutong"
+header-img: "img/post-bg-rwd.jpg"
+exclude_from_nav: true
+---
+
+<style>
+body {
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e5 100%);
+    overflow-x: hidden;
+}
+
+.valentine-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.valentine-title {
+    font-family: 'Georgia', serif;
+    font-size: 3.5em;
+    color: #ff1493;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    animation: fadeInDown 1.5s ease-out;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-family: 'Georgia', serif;
+    font-size: 1.8em;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInUp 2s ease-out;
+}
+
+.rose-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 30px auto;
+    animation: roseGrow 2s ease-out;
+}
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 250px;
+    background: linear-gradient(to bottom, #2d5016 0%, #4a7c2c 100%);
+    border-radius: 4px;
+    animation: stemGrow 1.5s ease-out;
+}
+
+.leaf {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: #4a7c2c;
+    border-radius: 0 50% 50% 0;
+    transform-origin: left center;
+}
+
+.leaf-left {
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-100%) rotate(-30deg);
+    animation: leafGrow 1.8s ease-out;
+}
+
+.leaf-right {
+    bottom: 80px;
+    left: 50%;
+    transform: rotate(30deg);
+    animation: leafGrow 2s ease-out;
+}
+
+.rose {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    animation: roseBloom 3s ease-out;
+}
+
+.petal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.petal:nth-child(1) {
+    background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(0deg);
+    animation: petalOpen 2.5s ease-out;
+}
+
+.petal:nth-child(2) {
+    background: radial-gradient(circle at 30% 30%, #ff85c1, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(45deg);
+    animation: petalOpen 2.7s ease-out;
+}
+
+.petal:nth-child(3) {
+    background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(90deg);
+    animation: petalOpen 2.9s ease-out;
+}
+
+.petal:nth-child(4) {
+    background: radial-gradient(circle at 30% 30%, #ff85c1, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(135deg);
+    animation: petalOpen 3.1s ease-out;
+}
+
+.petal:nth-child(5) {
+    background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(180deg);
+    animation: petalOpen 3.3s ease-out;
+}
+
+.petal:nth-child(6) {
+    background: radial-gradient(circle at 30% 30%, #ff85c1, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(225deg);
+    animation: petalOpen 3.5s ease-out;
+}
+
+.petal:nth-child(7) {
+    background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(270deg);
+    animation: petalOpen 3.7s ease-out;
+}
+
+.petal:nth-child(8) {
+    background: radial-gradient(circle at 30% 30%, #ff85c1, #ff1493);
+    clip-path: ellipse(45% 50% at 50% 50%);
+    transform: rotate(315deg);
+    animation: petalOpen 3.9s ease-out;
+}
+
+.rose-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ffb6c1, #ff1493);
+    border-radius: 50%;
+    animation: centerPulse 2s infinite;
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+    animation: fadeIn 3s ease-out;
+    border: 3px solid #ff69b4;
+}
+
+.message-text {
+    font-family: 'Georgia', serif;
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    color: #ff69b4;
+    font-size: 20px;
+    animation: heartFloat 8s linear infinite;
+    opacity: 0;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border: none;
+    color: white;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes stemGrow {
+    from {
+        height: 0;
+    }
+    to {
+        height: 250px;
+    }
+}
+
+@keyframes leafGrow {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes roseGrow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes roseBloom {
+    from {
+        transform: translateX(-50%) scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes petalOpen {
+    from {
+        transform: scale(0) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(var(--rotation, 0deg));
+    }
+}
+
+@keyframes centerPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes heartFloat {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .valentine-title {
+        font-size: 2.5em;
+    }
+    
+    .subtitle {
+        font-size: 1.3em;
+    }
+    
+    .message-box {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .message-text {
+        font-size: 1.1em;
+    }
+    
+    .rose-container {
+        transform: scale(0.8);
+    }
+}
+</style>
+
+<div class="hearts" id="heartsContainer"></div>
+
+<div class="valentine-container">
+    <h1 class="valentine-title">💕 情人节快乐 💕</h1>
+    <h2 class="subtitle">致我最爱的梧桐</h2>
+    
+    <div class="rose-container">
+        <div class="rose">
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="rose-center"></div>
+        </div>
+        <div class="stem">
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+        </div>
+    </div>
+    
+    <div class="message-box">
+        <p class="message-text">
+            亲爱的梧桐，<br><br>
+            虽然我们相隔两地，但我的心永远和你在一起。<br>
+            这朵玫瑰代表我对你深深的爱意，<br>
+            愿我们的爱情如这玫瑰般绽放，<br>
+            永远美丽，永远芬芳。<br><br>
+            情人节快乐，我最可爱的梧桐！❤️<br><br>
+            爱你的宇
+        </p>
+        <div style="text-align: center;">
+            <button onclick="logout()" class="logout-btn">返回</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// 检查登录状态
+function checkAuth() {
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    
+    if (loggedInUser !== 'wutong') {
+        alert('Please login first!');
+        window.location.href = '/more/';
+        return false;
+    }
+    
+    return true;
+}
+
+// 登出功能
+function logout() {
+    sessionStorage.removeItem('loggedInUser');
+    sessionStorage.removeItem('loginTime');
+    window.location.href = '/more/';
+}
+
+// 创建飘落的爱心
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+    
+    document.getElementById('heartsContainer').appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+// 页面加载时检查认证
+checkAuth();
+
+// 每隔一段时间创建一个爱心
+setInterval(createHeart, 800);
+
+// 初始创建一些爱心
+for (let i = 0; i < 10; i++) {
+    setTimeout(createHeart, i * 200);
+}
+</script>
