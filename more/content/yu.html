@@ -43,8 +43,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 550px;
-  height: 600px;
+  width: 450px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,8 +53,8 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 550px;
-  height: 400px;
+  width: 450px;
+  height: 320px;
   perspective: 1000px; /* 3D 翻转效果 */
   cursor: pointer; /* 提示可点击 */
 }
@@ -94,9 +94,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 25px;
   font-family: 'Pacifico', cursive;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.5;
   text-align: center;
   position: relative;
@@ -138,36 +138,36 @@ body {
   content:"";
   position: absolute;
   background-color: #ffb3c1;
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   border-radius:50%;
-  top:180px;
-  left:-25px;
-  box-shadow:80px 25px #ffb3c1,180px 15px #ffb3c1,270px 25px #ffb3c1,360px 0px #ffb3c1, 470px 25px #ffb3c1;
+  top:145px;
+  left:-20px;
+  box-shadow:65px 20px #ffb3c1,145px 12px #ffb3c1,220px 20px #ffb3c1,290px 0px #ffb3c1, 380px 20px #ffb3c1;
 }
 
 .valentines-day-card:after {
   content:"";
   position: absolute;
   background-color: #ffccd5;
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   border-radius:50%;
-  top:200px;
-  left:-40px;
-  box-shadow: 70px 25px #ffccd5,165px 50px #ffccd5, 280px 20px #ffccd5,360px 40px #ffccd5, 460px 40px #ffccd5,530px 15px #ffccd5;
+  top:160px;
+  left:-35px;
+  box-shadow: 55px 20px #ffccd5,135px 40px #ffccd5, 225px 15px #ffccd5,290px 30px #ffccd5, 370px 30px #ffccd5,430px 12px #ffccd5;
 }
 
 .clouds {
   position: absolute;
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   border-radius:50%;
   background-color: #fff0f3;
   z-index:5;
-  top:280px;
-  left:-20px;
-  box-shadow: 75px 40px #fff0f3, 170px 15px #fff0f3,240px 30px #fff0f3, 350px 15px #fff0f3, 450px 10px #fff0f3, 530px 15px #fff0f3;
+  top:225px;
+  left:-15px;
+  box-shadow: 60px 30px #fff0f3, 135px 12px #fff0f3,195px 23px #fff0f3, 280px 12px #fff0f3, 360px 8px #fff0f3, 425px 12px #fff0f3;
 }
 
 .hearts {
@@ -177,36 +177,36 @@ body {
 
 .heartOne {
   position: absolute;
-  left:140px;
-  top:320px;
+  left:115px;
+  top:260px;
   animation: up 4s linear forwards 1s;
 }
 
 .heartTwo {
   position: absolute;
-  left:370px;
-  top:300px;
+  left:300px;
+  top:245px;
   animation: up 5s linear forwards 1.8s;
 }
 
 .heartThree {
   position: absolute;
-  left:115px;
-  top:520px;
+  left:95px;
+  top:425px;
   animation: up 5s linear forwards 3s;
 }
 
 .heartFour {
   position: absolute;
-  left:440px;
-  top:480px;
+  left:360px;
+  top:390px;
   animation: upTwo 9s linear infinite 3.5s;
 }
 
 .heartFive {
   position: absolute;
-  left:200px;
-  top:500px;
+  left:165px;
+  top:410px;
   animation: upTwo 13s linear infinite 4.5s;
 }
 
@@ -276,14 +276,14 @@ body {
 .text {
   position: absolute;
   color: #800f2f;
-  font-size:34px;
+  font-size:28px;
   font-family: 'Pacifico', cursive;
   line-height:1.3;
   text-align: center;
-  width:520px;
+  width:420px;
   left:15px;
   z-index:100;
-  top:30px;
+  top:25px;
   animation: fadeIn 1.5s ease forwards;
   text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.5);
   font-weight: bold;
@@ -340,32 +340,59 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .happy-valentines {
-    width: 300px;
-    height: 400px;
+    width: 320px;
+    height: 420px;
   }
   
   .flip-card {
-    width: 300px;
-    height: 225px;
+    width: 320px;
+    height: 240px;
   }
   
   .text {
-    font-size: 24px;
-    width: 280px;
-    left: 10px;
-    top: 240px;
+    font-size: 20px;
+    width: 290px;
+    left: 15px;
+    top: 20px;
+    z-index: 100;
   }
   
   .flip-card-back {
-    font-size: 20px;
+    font-size: 18px;
+    padding: 20px;
+  }
+  
+  /* 调整云朵和气球 */
+  .valentines-day-card:before {
+    width: 60px;
+    height: 60px;
+    top: 110px;
+    left: -15px;
+    box-shadow: 50px 15px #ffb3c1, 110px 9px #ffb3c1, 165px 15px #ffb3c1, 218px 0px #ffb3c1, 285px 15px #ffb3c1;
+  }
+  
+  .valentines-day-card:after {
+    width: 60px;
+    height: 60px;
+    top: 120px;
+    left: -25px;
+    box-shadow: 40px 15px #ffccd5, 100px 30px #ffccd5, 168px 11px #ffccd5, 218px 22px #ffccd5, 278px 22px #ffccd5, 323px 9px #ffccd5;
+  }
+  
+  .clouds {
+    width: 60px;
+    height: 60px;
+    top: 170px;
+    left: -12px;
+    box-shadow: 45px 22px #fff0f3, 100px 9px #fff0f3, 145px 17px #fff0f3, 210px 9px #fff0f3, 270px 6px #fff0f3, 318px 9px #fff0f3;
   }
   
   /* 调整心形位置以适应小屏幕 */
-  .heartOne { left: 75px; top: 187px; }
-  .heartTwo { left: 202px; top: 172px; }
-  .heartThree { left: 64px; top: 311px; }
-  .heartFour { left: 240px; top: 285px; }
-  .heartFive { left: 112px; top: 300px; }
+  .heartOne { left: 82px; top: 195px; }
+  .heartTwo { left: 215px; top: 184px; }
+  .heartThree { left: 68px; top: 318px; }
+  .heartFour { left: 258px; top: 292px; }
+  .heartFive { left: 118px; top: 307px; }
 }
 </style>
 
